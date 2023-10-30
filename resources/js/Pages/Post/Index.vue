@@ -1,7 +1,11 @@
 <!-- resources/js/components/PostsDataTable.vue -->
 
 <template>
-    <AppLayout title="Posts">         
+    <Head title="Posts lists"/>
+    <AppLayout>
+        <Link :href="route('posts.create')" class="inline-block px-4 py-3 bg-indigo-600 text-white rounded hover:bg-indigo-500">
+            New Post
+        </Link>         
         <table class="mt-4 min-w-full divide-y divide-gray-200 border">
             <thead>
                 <tr>
@@ -41,9 +45,13 @@
 
 <script>
 import AppLayout from '@/Layouts/App.vue';
+import { Head, Link } from '@inertiajs/vue3';
+
 export default {
     components: {
-        AppLayout
+        AppLayout,
+        Head,
+        Link,
     },
     props: {
         posts: Array,

@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::get(uri: 'posts', action: [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+Route::resource('posts', App\Http\Controllers\PostController::class);
 
 Route::inertia('about', 'About')->name('pages.about');
+
+Route::inertia('login', 'Auth/Login')->name('login');
